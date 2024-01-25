@@ -1,0 +1,14 @@
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\bin\Debug\net7.0\Terminal-OOP.exe
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\bin\Debug\net7.0\Terminal-OOP.deps.json
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\bin\Debug\net7.0\Terminal-OOP.runtimeconfig.json
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\bin\Debug\net7.0\Terminal-OOP.dll
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\bin\Debug\net7.0\Terminal-OOP.pdb
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\obj\Debug\net7.0\Terminal-OOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\obj\Debug\net7.0\Terminal-OOP.AssemblyInfoInputs.cache
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\obj\Debug\net7.0\Terminal-OOP.AssemblyInfo.cs
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\obj\Debug\net7.0\Terminal-OOP.csproj.CoreCompileInputs.cache
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\obj\Debug\net7.0\Terminal-OOP.dll
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\obj\Debug\net7.0\refint\Terminal-OOP.dll
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\obj\Debug\net7.0\Terminal-OOP.pdb
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\obj\Debug\net7.0\Terminal-OOP.genruntimeconfig.cache
+C:\Users\welldone\Desktop\Alireza\Bus Terminal\Terminal-OOP\Terminal-OOP\obj\Debug\net7.0\ref\Terminal-OOP.dll

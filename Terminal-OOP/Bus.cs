@@ -8,7 +8,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Terminal_OOP
 {
-    public abstract class Bus
+    public  class Bus
     {
         public Bus(string name)
         {
@@ -24,7 +24,7 @@ namespace Terminal_OOP
             Chair = new();
             for (int i = 1; i <= chair; i++)
             {
-                Chair.Add(new Chair(i));
+                Chair.Add(new Chair(i.ToString()));
             }
         }
         public void SetID(int id )
@@ -53,11 +53,11 @@ namespace Terminal_OOP
 
     public class Chair
     {
-        public Chair(int num)
+        public Chair(string num)
         {
             Num = num;
         }
-        public int Num { get; set; }
+        public string Num { get; set; }
         public Bus Bus { get; set; }
     }
 }

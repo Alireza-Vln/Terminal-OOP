@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,28 +13,28 @@ namespace Terminal_OOP
 
 
 
-        private static List<Bus> buses=new ();
-        private static List<Trip> triples=new ();
+        private static List<Bus> buses = new();
+        private static List<Trip> triples = new();
 
-         static int NormalID = 0;
-        static int VipID = 0;
-        static  int TripId= 0;
+        static int BusId = 0;
+        static double Total = 0;
+        static int TripId = 0;
         public static void Addbus(string name, int type)
         {
             if (type == 1)
             {
-                NormalID++;
+                BusId++;
 
                 var bus = new NormalBus(name);
-                bus.SetID(NormalID);
+                bus.SetID(BusId);
                 bus.SetChair(bus.Capacity);
                 buses.Add(bus);
             }
             if (type == 2)
             {
-                VipID++;
+                BusId++;
                 var bus = new VipBus(name);
-                bus.SetID(VipID);
+                bus.SetID(BusId);
                 bus.SetChair(bus.Capacity);
                 buses.Add(bus);
             }
@@ -40,17 +42,17 @@ namespace Terminal_OOP
 
         public static void AddTrip(int type)
         {
-            if(type == 1)
+            if (type == 1)
             {
                 Line();
-                var item=buses.Where(_ => _.Type == "Normal");
-                foreach(var bus in item)
+                var item = buses.Where(_ => _.Type == "Normal");
+                foreach (var bus in item)
                 {
                     Console.WriteLine($"{bus.Id}=>{bus.Name}--Type={bus.Type}");
                 }
                 Line();
                 int Option = GetInt("choose Option=");
-                var check=buses.Find(_=>_.Id== Option);
+                var check = buses.Find(_ => _.Id == Option);
                 if (check == null)
                 {
                     throw new Exception();
@@ -60,8 +62,8 @@ namespace Terminal_OOP
                     string origin = GetString("set origin");
                     string destination = GetString("set destination");
                     double ticketPrice = GetDouble("set Ticket Price");
-                    var trip=new Trip(origin, destination, ticketPrice,check);
-                     trip.SetID(TripId);
+                    var trip = new Trip(origin, destination, ticketPrice,check);
+                    trip.SetID(TripId);
                     triples.Add(trip);
                 }
             }
@@ -97,36 +99,98 @@ namespace Terminal_OOP
 
         public static void ShowTrip()
         {
-            foreach(var trip in triples)
+            int i = 1;
+            foreach (var trip in triples)
             {
-
-                Console.WriteLine($"{trip.Buses.Name}----{trip.Buses.Type}---{trip.Origin}---{trip.Destination}---{trip.TicketPrice}");
-
-
-
+                trip.SetID(i);
+                Console.WriteLine($"{trip.Bus.Id}->{trip.Bus.Name}--{trip.Bus.Type} ---{trip.Origin}---{trip.Destination}---{trip.TicketPrice}");
+                i++;
+            }
+            int optin = GetInt("enter your trip");
+            {
+                var chairs=triples.Where(_ => _.Bus.Id == optin);
+                if (chairs == null)
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                    Line();
+                    foreach (var chair in chairs)
+                    {
+                        foreach(var x in chair.Bus.Chair)
+                        {
+                            Console.WriteLine($"{chair.Bus.Name}--{chair.Bus.Type}--{x.Num}");
+                        }
+                    }
+                    Line();
+                }
             }
         }
 
+        public static void BookATicket()
+        {
+            ShowTrip();
 
+            string ticket = GetString("Enter Your Chair");
+            foreach (var chair in buses)
+            {
+                var ticketNum =chair.Chair.Where(_ => _.Num == ticket);
+                foreach (var num in ticketNum)
+                {
+                    num.Num = "rr";
 
+                }
+            }
+         
 
+        }
+        public static void BuyATicket()
+        {
+            ShowTrip();
 
+            string ticket = GetString("Enter Your Chair");
 
+            foreach (var buese in triples)
+            {
+                foreach (var chair in buese.Bus.Chair)
+                {
+                     if(chair.Num== ticket)
+                    {
+                        chair.Num = "bb";
+                    }
+
+                }
+                Total += buese.TicketPrice;
+            }   
+            
+            
+            
+            
+            
+            
+            //foreach (var chair in buses)
+            //{
+            //    var ticketNum = chair.Chair.Where(_ => _.Num == ticket);
+           
+            //    foreach (var num in ticketNum)
+            //    {
+            //        num.Num = "bb";
+
+            //    }
+            //}
+            
+        }
+
+        public static void showTotal()
+        {
+            Console.WriteLine($"total={Total}");
+        }
+        
         public static void Line()
         {
             Console.WriteLine("--------------------------------");
         }
- 
-
-
-
-
-
-
-
-        
-
-
 
 
 

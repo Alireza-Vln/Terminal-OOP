@@ -14,13 +14,14 @@ namespace Terminal_OOP
             Origin = origin;
             Destination = destination;
             TicketPrice = ticket;
-            Buses=bus;
+            Bus= bus;
+           
         }
         public int Id { get; set; }
         public string Origin { get; set; }
         public string Destination { get; set; }
         public double TicketPrice { get; set; }
-        public Bus? Buses { get; set; }
+        public Bus Bus { get; set; }
         public void SetID(int id)
         {
             Id = id;
