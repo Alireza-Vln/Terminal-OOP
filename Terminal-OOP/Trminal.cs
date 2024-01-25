@@ -17,7 +17,6 @@ namespace Terminal_OOP
         private static List<Trip> triples = new();
 
         static int BusId = 0;
-        static double Total = 0;
         static int TripId = 0;
         public static void Addbus(string name, int type)
         {
@@ -38,6 +37,8 @@ namespace Terminal_OOP
                 bus.SetChair(bus.Capacity);
                 buses.Add(bus);
             }
+            
+
         }
 
         public static void AddTrip(int type)
@@ -48,21 +49,22 @@ namespace Terminal_OOP
                 var item = buses.Where(_ => _.Type == "Normal");
                 foreach (var bus in item)
                 {
-                    Console.WriteLine($"{bus.Id}=>{bus.Name}--Type={bus.Type}");
+                    Console.WriteLine($"{bus.Id}=>name={bus.Name}--Type={bus.Type}");
                 }
                 Line();
                 int Option = GetInt("choose Option=");
                 var check = buses.Find(_ => _.Id == Option);
-                if (check == null)
+                if (check.Type == "Vip")
                 {
-                    throw new Exception();
+                    throw new Exception("Error");
                 }
                 else
                 {
+
                     string origin = GetString("set origin");
                     string destination = GetString("set destination");
                     double ticketPrice = GetDouble("set Ticket Price");
-                    var trip = new Trip(origin, destination, ticketPrice,check);
+                    var trip = new Trip(origin, destination, ticketPrice, check);
                     trip.SetID(TripId);
                     triples.Add(trip);
                 }
@@ -73,14 +75,14 @@ namespace Terminal_OOP
                 var item = buses.Where(_ => _.Type == "Vip");
                 foreach (var bus in item)
                 {
-                    Console.WriteLine($"{bus.Id}=>{bus.Name}--Type={bus.Type}");
+                    Console.WriteLine($"{bus.Id}=>name={bus.Name}--Type={bus.Type}");
                 }
                 Line();
                 int Option = GetInt("choose Option=");
                 var check = buses.Find(_ => _.Id == Option);
-                if (check == null)
+                if (check.Type=="Normal")
                 {
-                    throw new Exception();
+                    throw new Exception("Error");
                 }
                 else
                 {
@@ -93,6 +95,7 @@ namespace Terminal_OOP
                     triples.Add(trip);
                 }
             }
+           
         }
 
 
@@ -103,7 +106,9 @@ namespace Terminal_OOP
             foreach (var trip in triples)
             {
                 trip.SetID(i);
-                Console.WriteLine($"{trip.Bus.Id}->{trip.Bus.Name}--{trip.Bus.Type} ---{trip.Origin}---{trip.Destination}---{trip.TicketPrice}");
+                Console.WriteLine($"{trip.Bus.Id}=>name={trip.Bus.Name}" +
+                    $"--type={trip.Bus.Type}---origin={trip.Origin}" +
+                    $"---destination={trip.Destination}---price={trip.TicketPrice}");
                 i++;
             }
             int optin = GetInt("enter your trip");
@@ -118,9 +123,11 @@ namespace Terminal_OOP
                     Line();
                     foreach (var chair in chairs)
                     {
-                        foreach(var x in chair.Bus.Chair)
+                        foreach(var item in chair.Bus.Chair)
                         {
-                            Console.WriteLine($"{chair.Bus.Name}--{chair.Bus.Type}--{x.Num}");
+                            Console.WriteLine($"{item.chairId}=>name={chair.Bus.Name}" +
+                                $"--type={chair.Bus.Type}" +
+                                $"--chair{item.Num}");
                         }
                     }
                     Line();
@@ -133,8 +140,19 @@ namespace Terminal_OOP
             ShowTrip();
 
             string ticket = GetString("Enter Your Chair");
-          
-         
+
+            foreach (var buese in triples)
+            {
+                foreach (var chair in buese.Bus.Chair)
+                {
+                    if (chair.Num == ticket)
+                    {
+                        chair.Num = "rr";
+                    }
+
+                }
+                buese.travelIncome += (buese.TicketPrice * 30 / (100));
+            }
 
         }
         public static void BuyATicket()
@@ -157,18 +175,39 @@ namespace Terminal_OOP
             }   
             
             
-            
-            
-            
-            
-            
+        }
+        public static void CancelTheTrip()
+        {
+            ShowTrip();
+            int ticket = GetInt("Enter Your trip");
+
+            foreach (var buses in triples)
+            {
+                var x = buses.Bus.Chair.Find(_ => _.chairId == ticket);
+                Console.WriteLine(x.Num);
+                if (x.Num == "bb")
+                {
+                    x.Num = x.chairId.ToString();
+                    buses.travelIncome -= (buses.TicketPrice * 90 / (100));
+                    buses.CancelBuy++;
+                }
+                if (x.Num == "rr")
+                {
+                    x.Num = x.chairId.ToString();
+                    buses.travelIncome -= (buses.TicketPrice * 80 /(100));
+                    buses.CancelBook++;
+                }
+              
+            }
         }
 
         public static void showTotal()
         {
             foreach (var income in triples)
             {
-                Console.WriteLine($"total={income.travelIncome}");
+                Console.WriteLine($"total={income.travelIncome}" +
+                    $"--Cancle Buy{income.CancelBuy}" +
+                    $"--Cancel book{income.CancelBook}");
             }
            
         }
@@ -179,7 +218,7 @@ namespace Terminal_OOP
         }
 
 
-
+      
 
 
 

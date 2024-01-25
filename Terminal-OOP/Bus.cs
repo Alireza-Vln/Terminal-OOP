@@ -24,7 +24,7 @@ namespace Terminal_OOP
             Chair = new();
             for (int i = 1; i <= chair; i++)
             {
-                Chair.Add(new Chair(i.ToString()));
+                Chair.Add(new Chair(i.ToString(),i));
             }
         }
         public void SetID(int id )
@@ -53,11 +53,13 @@ namespace Terminal_OOP
 
     public class Chair
     {
-        public Chair(string num)
+        public Chair(string num, int chairId)
         {
             Num = num;
+            this.chairId = chairId;
         }
         public string Num { get; set; }
+        public int chairId { get; set; }
         public Bus Bus { get; set; }
     }
 }

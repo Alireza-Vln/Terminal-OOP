@@ -1,14 +1,16 @@
 ﻿
 using Terminal_OOP;
-
-while (true)
+bool Exit=false;
+while (Exit==false)
 {
     int menu = Terminal.GetInt($"1)Add Bus\n" +
         $"2)Add Trip\n" +
         $"3)show tripes\n" +
         $"4)book a ticket\n" +
         $"5)Buy a ticket\n" +
-        $"9)show total");
+        $"6)Cancel the ticket\n" +
+        $"7)show total\n" +
+        $"0)EXIT");
 
     switch (menu)
     {
@@ -35,19 +37,51 @@ while (true)
             }
             case 4:
             {
-                Terminal.BookATicket();
+                int exit = Terminal.GetInt("0)exit OR 1)continue");
+                if (exit == 0)
+                {
+                    break;
+                }
+                else
+                    Terminal.BookATicket();
                 break;
             }
         case 5:
             {
-                Terminal.BuyATicket();
+                int exit = Terminal.GetInt("0)exit OR 1)continue");
+                if (exit == 0)
+                {
+                    break;
+                }
+                else
+                    Terminal.BuyATicket();
+              
                 break;
             }
-        case 9:
+        case 6:
             {
-
-                Terminal.showTotal();
+                int exit = Terminal.GetInt("0)exit OR 1)continue");
+                if (exit == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    Terminal.CancelTheTrip();
+                }
                 break;
             }
+        case 7:
+            {
+                Terminal.showTotal();
+               
+                break;
+            }
+            case 0:
+            {
+                Exit = true;
+                break;
+            }
+
     }
 }

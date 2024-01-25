@@ -23,6 +23,8 @@ namespace Terminal_OOP
         public double TicketPrice { get; set; }
         public Bus Bus { get; set; }
         public double travelIncome { get; set; }
+        public int CancelBuy { get; set; }
+        public int CancelBook { get; set; }
         public void SetID(int id)
         {
             Id = id;
