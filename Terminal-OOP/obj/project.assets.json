@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amirv\\OneDrive\\Desktop\\Terminal-OOP-master\\Terminal-OOP\\Terminal-OOP.csproj",
+      "projectUniqueName": "C:\\Users\\amirv\\OneDrive\\Documents\\Terminal-OOP\\Terminal-OOP\\Terminal-OOP.csproj",
       "projectName": "Terminal-OOP",
-      "projectPath": "C:\\Users\\amirv\\OneDrive\\Desktop\\Terminal-OOP-master\\Terminal-OOP\\Terminal-OOP.csproj",
+      "projectPath": "C:\\Users\\amirv\\OneDrive\\Documents\\Terminal-OOP\\Terminal-OOP\\Terminal-OOP.csproj",
       "packagesPath": "C:\\Users\\amirv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amirv\\OneDrive\\Desktop\\Terminal-OOP-master\\Terminal-OOP\\obj\\",
+      "outputPath": "C:\\Users\\amirv\\OneDrive\\Documents\\Terminal-OOP\\Terminal-OOP\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\amirv\\AppData\\Roaming\\NuGet\\NuGet.Config",
