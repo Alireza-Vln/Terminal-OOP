@@ -133,15 +133,7 @@ namespace Terminal_OOP
             ShowTrip();
 
             string ticket = GetString("Enter Your Chair");
-            foreach (var chair in buses)
-            {
-                var ticketNum =chair.Chair.Where(_ => _.Num == ticket);
-                foreach (var num in ticketNum)
-                {
-                    num.Num = "rr";
-
-                }
-            }
+          
          
 
         }
@@ -169,16 +161,6 @@ namespace Terminal_OOP
             
             
             
-            //foreach (var chair in buses)
-            //{
-            //    var ticketNum = chair.Chair.Where(_ => _.Num == ticket);
-           
-            //    foreach (var num in ticketNum)
-            //    {
-            //        num.Num = "bb";
-
-            //    }
-            //}
             
         }
 
