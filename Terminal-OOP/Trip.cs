@@ -22,6 +22,7 @@ namespace Terminal_OOP
         public string Destination { get; set; }
         public double TicketPrice { get; set; }
         public Bus Bus { get; set; }
+        public double travelIncome { get; set; }
         public void SetID(int id)
         {
             Id = id;
