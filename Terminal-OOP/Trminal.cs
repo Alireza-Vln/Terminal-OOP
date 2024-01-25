@@ -153,7 +153,7 @@ namespace Terminal_OOP
                     }
 
                 }
-                Total += buese.TicketPrice;
+                buese.travelIncome += buese.TicketPrice;
             }   
             
             
@@ -166,7 +166,11 @@ namespace Terminal_OOP
 
         public static void showTotal()
         {
-            Console.WriteLine($"total={Total}");
+            foreach (var income in triples)
+            {
+                Console.WriteLine($"total={income.travelIncome}");
+            }
+           
         }
         
         public static void Line()
